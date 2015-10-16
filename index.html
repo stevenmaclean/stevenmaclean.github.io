@@ -17,9 +17,25 @@
                 FB.api('/me?fields=first_name', function(data) {
                     var welcomeBlock = document.getElementById('fb-welcome');
                     welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+                    window.alert(data);
                 });
             }
         }
+        
+        /*
+        var friendCache = {};
+        
+        function getMe(callback) {
+            FB.api('/me?fields=id,name,first_name,picture.width(120).height(120)',
+                   function(response){
+                if( !response.error ) {
+                    friendCache.me = response;
+                    callback();
+                } else {
+                    console.error('/me', response);
+                }
+            });
+        }//*/
 
         FB.getLoginStatus(function(response) {
             // Check login status on load, and if the user is
